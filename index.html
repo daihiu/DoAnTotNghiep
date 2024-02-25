@@ -26,18 +26,20 @@
 			<p>BẮT ĐẦU</p>
 		</div>
 	</div>
-	<!-- <div class="firstScreen" id="firstPage" style="display: block;">
-		<div id="typedtext"></div>
-
-		<div id="startButton" onclick="startShowOtherScreen()">
-			<p>BẮT ĐẦU</p>
-		</div>
-	</div> -->
 	<script src="./javascript.js"></script>
 
 	<!-- Wrapper -->
 	<div id="wrapper" style="display: none;">
-
+		<script>
+			if (sessionStorage.getItem("data") == "0") {
+				document.getElementById("firstPage").style.display = "none";
+				//show the other screen
+				document.getElementById("wrapper").style.display = "flex";
+				//add music for main page
+				var audio = new Audio('./sounds/dulich.mp3');
+				audio.play();
+			}
+		</script>
 		<!-- Panel (Banner) -->
 		<section class="panel banner right">
 			<div class="content span-10" style="padding: 0;">
@@ -54,39 +56,66 @@
 
 		<section class="panel banner right" id="first">
 			<div class="content span-10"
-				style="background-image: url('/imgs/back3only.png'); background-size: contain;">
-				<img style="width: 110%; transform: translate(-5%, -5%);" src="./imgs/curveline.png" alt="" />
-				<div style="position: absolute;" class="dots">
-					<div style="position: relative; top: 79px; left: 250px;" class="dot">
-						<div class="circle delay1"></div>
-						<div class="circle delay2"></div>
-						<div class="circle delay3"></div>
-						<div class="circle delay4"></div>
-						<div style="position: relative; top: 30px; left: -10px;">
-							Click
+				style="background-image: url('./imgs/back3only.png'); background-size: contain;">
+				<img style="width: 110%; transform: translate(-5%, 0%);" src="./imgs/curveline.png" alt="" />
+				<div style="position: absolute; transform: translateY(47%);" class="dots">
+					<a href="page1.html" onclick="">
+						<div style="position: relative; top: 4.1em; left: 13em;" class="dot hoverClickScreen2">
+							<div class="circle delay1"></div>
+							<div class="circle delay2"></div>
+							<div class="circle delay3"></div>
+							<div class="circle delay4"></div>
+							<div class="buttonClickScr2">
+								Click
+							</div>
+							<div style="position: relative; transform: translateX(-45%); top: -340px; width: 250px;">
+								<p class="titleImgScr2">Đại đẹp trai 123 abc</p>
+								<img style="width: 250px; border-radius: 50%; height: 250px; object-fit: cover;
+								 position: relative; border: solid rgb(209, 180, 13);" src="./imgs/daihiu.jpg" alt="">
+							</div>
 						</div>
+					</a>
+					<div style="position: relative; top: 3.9em; left: 24.1em;" class="dot">
 					</div>
-					<div style="position: relative; top: 76px; left: 460px;" class="dot">
+					<div style="position: relative; top: -0.8em; left: 35.9em;" class="dot">
 					</div>
-					<div style="position: relative; top: -11px; left: 682px;" class="dot">
+					<a href="page2.html" onclick="">
+						<div style="position: relative; top: -7.1em; left: 45em;" class="dot hoverClickScreen2">
+							<div class="circle delay1"></div>
+							<div class="circle delay2"></div>
+							<div class="circle delay3"></div>
+							<div class="circle delay4"></div>
+							<div class="buttonClickScr2">
+								Click
+							</div>
+							<div style="position: relative; transform: translateX(-47%); top: -340px; width: 250px;">
+								<p class="titleImgScr2">Đại đẹp trai 123 abc</p>
+								<img style="width: 250px; border-radius: 50%; height: 250px; object-fit: cover;
+								 position: relative; border: solid rgb(209, 180, 13);" src="./imgs/daihiu.jpg" alt="">
+							</div>
+						</div>
+					</a>
+					<div style="position: relative; top: -1.5em; left: 54.3em;" class="dot">
 					</div>
-					<div style="position: relative; top: -134px; left: 860px;" class="dot">
-						<div class="circle delay1"></div>
-						<div class="circle delay2"></div>
-						<div class="circle delay3"></div>
-						<div class="circle delay4"></div>
+					<div style="position: relative; top: 6.1em; left: 61.1em;" class="dot">
 					</div>
-					<div style="position: relative; top: -34px; left: 1039px;" class="dot">
-					</div>
-					<div style="position: relative; top: 129px; left: 1182px;" class="dot">
-					</div>
-					<div style="position: relative; top: 242px; left: 1378px;" class="dot">
-						<div class="circle delay1"></div>
-						<div class="circle delay2"></div>
-						<div class="circle delay3"></div>
-						<div class="circle delay4"></div>
-					</div>
-					<div style="position: relative; top: 150px; left: 1528px;" class="dot">
+					<a href="page3.html" onclick="">
+						<div style="position: relative; top: 12.6em; left: 71.7em;" class="dot hoverClickScreen2">
+							<div class="circle delay1"></div>
+							<div class="circle delay2"></div>
+							<div class="circle delay3"></div>
+							<div class="circle delay4"></div>
+							<div class="buttonClickScr2">
+								Click
+							</div>
+							<div style="position: relative; transform: translateX(-47%); top: -340px; width: 250px;">
+								<p class="titleImgScr2">Đại đẹp trai 123 abc</p>
+								<img style="width: 250px; border-radius: 50%; height: 250px; object-fit: cover;
+								 position: relative; border: solid rgb(209, 180, 13);" src="./imgs/daihiu.jpg" alt="">
+							</div>
+						</div>
+					</a>
+					<div style="position: relative; top: 8em; left: 79.4em;" class="dot">
 					</div>
 				</div>
 			</div>

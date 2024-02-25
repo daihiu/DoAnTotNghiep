@@ -100,3 +100,28 @@
         opacity: 0;
     }
 }
+
+.hoverClickScreen2 {
+    color: white;
+}
+
+.hoverClickScreen2:hover {
+    cursor: pointer;
+    color: orange !important;
+}
+
+.titleImgScr2 {
+    font-size: 26px;
+    position: relative;
+    margin: 0;
+    transform: translateX(10%);
+    font-weight: bold;
+}
+
+.buttonClickScr2 {
+    position: relative;
+    top: 25px;
+    left: -12px;
+    font-weight: bold;
+    font-size: 22px;
+}
