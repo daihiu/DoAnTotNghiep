@@ -89,7 +89,7 @@
     animation: waves 2.5s infinite 1.9s forwards;
 }
 
-@-webkit-keyframes waves {
+@keyframes waves {
     0% {
         transform: scale(1);
         opacity: 1;
@@ -110,6 +110,78 @@
     color: orange !important;
 }
 
+.buttonClickScr2 {
+    position: relative;
+    top: 25px;
+    left: -12px;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.dot1 {
+    position: relative;
+    top: 4.1em;
+    left: 13em;
+}
+
+.dot2 {
+    position: relative;
+    top: 4.1em;
+    left: 13em;
+}
+
+.dot3 {
+    position: relative;
+    top: 4.1em;
+    left: 13em;
+}
+
+.dot4 {
+    position: relative;
+    top: 4.1em;
+    left: 13em;
+}
+
+.dot5 {
+    position: relative;
+    top: 4.1em;
+    left: 13em;
+}
+
+.dot6 {
+    position: relative;
+    top: 4.1em;
+    left: 13em;
+}
+
+.dot7 {
+    position: relative;
+    top: 4.1em;
+    left: 13em;
+}
+
+.dot8 {
+    position: relative;
+    top: 4.1em;
+    left: 13em;
+}
+
+.imageScr2 {
+    width: 250px;
+    border-radius: 50%;
+    height: 250px;
+    object-fit: cover;
+    position: relative;
+    border: solid rgb(209, 180, 13);
+}
+
+.titleAndImg {
+    position: relative;
+    transform: translateX(-45%);
+    top: -340px;
+    width: 250px;
+}
+
 .titleImgScr2 {
     font-size: 26px;
     position: relative;
@@ -118,10 +190,83 @@
     font-weight: bold;
 }
 
-.buttonClickScr2 {
-    position: relative;
-    top: 25px;
-    left: -12px;
-    font-weight: bold;
-    font-size: 22px;
+@media screen and (max-width: 1680px) {
+    .titleAndImg {
+        position: relative;
+        width: 200px;
+        top: -285px;
+        transform: translateX(-47%);
+    }
+
+    .titleImgScr2 {
+        font-size: 24px;
+        position: relative;
+        margin: 0;
+        font-weight: bold;
+        left: -10px;
+    }
+
+    .imageScr2 {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        position: relative;
+        border: solid rgb(209, 180, 13);
+    }
+
+    .dot1 {
+        position: relative;
+        top: 4.1em;
+        left: 13em;
+    }
+
+    .dot2 {
+        position: relative;
+        top: 3.3em;
+        left: 25.9em;
+    }
+
+    .dot3 {
+        position: relative;
+        top: -2.1em;
+        left: 37em;
+    }
+
+    .dot4 {
+        position: relative;
+        top: -7.7em;
+        left: 44.9em;
+    }
+
+    .dot5 {
+        position: relative;
+        top: -1.5em;
+        left: 55em;
+    }
+
+    .dot6 {
+        position: relative;
+        top: 6.1em;
+        left: 62em;
+    }
+
+    .dot7 {
+        position: relative;
+        top: 11.2em;
+        left: 72em;
+    }
+
+    .dot8 {
+        position: relative;
+        top: 6.6em;
+        left: 79.1em;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+
+    .panel.spotlight .content {
+        min-height: 30rem;
+    }
+
 }
