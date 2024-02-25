@@ -1,0 +1,1220 @@
+@-webkit-keyframes waves {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes bloop {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes bloop {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.delay1 {
+    -webkit-animation: waves 2.5s infinite;
+    animation: waves 2.5s infinite;
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+.delay2 {
+    -webkit-animation: waves 2.5s infinite 0.7s forwards;
+    animation: waves 2.5s infinite 0.7s forwards;
+}
+
+.delay3 {
+    -webkit-animation: waves 2.5s infinite 1.3s forwards;
+    animation: waves 2.5s infinite 1.3s forwards;
+}
+
+.delay4 {
+    -webkit-animation: waves 2.5s infinite 1.9s forwards;
+    animation: waves 2.5s infinite 1.9s forwards;
+}
+
+.circle {
+    display: block;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: #0194c7;
+    /* background: white; */
+    margin: 10px;
+    transition: 5s ease;
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    z-index: -1;
+}
+
+.hyper {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modau-c1 {
+    -webkit-animation: my 2000ms infinite;
+    -moz-animation: my 2000ms infinite;
+    -o-animation: my 2000ms infinite;
+    animation: my 2000ms infinite;
+    animation-delay: 2000ms;
+}
+
+.modau-c2 {
+    -webkit-animation: my 2000ms infinite;
+    -moz-animation: my 2000ms infinite;
+    -o-animation: my 2000ms infinite;
+    animation: my 2000ms infinite;
+    animation-delay: 2000ms;
+}
+
+.modau-c3 {
+    -webkit-animation: my 2000ms infinite;
+    -moz-animation: my 2000ms infinite;
+    -o-animation: my 2000ms infinite;
+    animation: my 2000ms infinite;
+    animation-delay: 2000ms;
+}
+
+body {
+    font-size: calc(14px + (26 - 16) * ((100vw - 100px) / (1200 - 100)));
+}
+
+body.white {
+    color: white;
+}
+
+body.black {
+    color: black;
+}
+
+body::-webkit-scrollbar {
+    width: 6px;
+    height: 90%;
+}
+
+body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0.2;
+    border-radius: 30px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    height: 20px;
+    width: 20px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+}
+
+p {
+    margin-bottom: 8px;
+    z-index: 1;
+    font-size: 22px;
+    /* font-size: calc(14px + (26 - 16) * ((100vw - 100px) / (1200 - 100))); */
+}
+
+#bghome-video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#bghome-img {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.load {
+    position: relative;
+    transform: rotate(270deg) translateX(50px);
+}
+
+.load img {
+    transform: rotate(180deg);
+}
+
+.processing {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: -1;
+}
+
+.processing::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: red;
+    z-index: -1;
+    content: '';
+}
+
+.processing.w50::before {
+    width: 70%;
+    transition: all 5s;
+}
+
+.processing.w100::before {
+    width: 100%;
+    background: #3116f7;
+    transition: all 5s;
+}
+
+.play {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.play img {
+    width: 50px;
+    height: 50px;
+}
+
+.padding-section {
+    padding: 100px 0;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 50;
+    padding: 0 50px;
+}
+
+.header-ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    gap: 60px;
+}
+
+.header-ul li {
+    cursor: pointer;
+    font-size: 20px;
+    position: relative;
+}
+
+.header-ul li::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    left: -30px;
+    top: 4px;
+    background: white;
+}
+
+.header-ul li.active::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    left: -25.8px;
+    top: 8.8px;
+    background: black;
+}
+
+.opacity-50 {
+    opacity: 0.5;
+}
+
+.top-1 {
+    margin: 0 auto;
+}
+
+.bg-1 {
+    width: 100vw;
+}
+
+.content-title {
+    font-weight: 600;
+}
+
+.share {
+    background: #3116f7;
+    color: white;
+    border-radius: 20px;
+    padding: 2px 16px;
+    font-size: 18px;
+}
+
+.z-1 {
+    z-index: 1;
+}
+
+.color-white {
+    color: white !important;
+}
+
+/**/
+
+.position-left {
+    position: fixed;
+    right: 5px;
+    top: 45%;
+    z-index: 10;
+}
+
+.position-left ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.position-left ul li {
+    margin-bottom: 8px;
+}
+
+.position-left ul li img {
+    width: 50px;
+    height: 50px;
+}
+
+.position-left ul li.active a {}
+
+.position-left ul li.active {
+    border: 3px solid #929292;
+    border-radius: 50%;
+}
+
+.position-left ul li:hover {
+    border-radius: 50%;
+    border: 3px solid #929292;
+}
+
+.loading {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    z-index: 50;
+}
+
+.loading-content {
+    color: white;
+    font-family: 'Pangolin', cursive;
+    font-size: 25px;
+    z-index: 51;
+}
+
+.w-60 {
+    width: 66px;
+}
+
+/* 
+    Parallax 
+*/
+
+.parallax {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.parallax .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.94);
+}
+
+#background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.hover-hyperlink {
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    z-index: 20;
+}
+
+.hover-hyperlink:hover p {
+    text-decoration: underline;
+}
+
+.hover-hyperlink p {
+    color: white;
+}
+
+.hover-hyperlink p.black {
+    color: black;
+}
+
+.hyper-scroll .max-height-image {
+    max-height: 520px;
+}
+
+.hyper-scroll {
+    overflow: auto;
+}
+
+.hyper-scroll::-webkit-scrollbar {
+    width: 6px;
+    height: 90%;
+}
+
+.hyper-scroll::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0.2;
+    border-radius: 30px;
+}
+
+.hyper-scroll::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    height: 20px;
+    width: 20px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+}
+
+.hyper-scroll-ngang {
+    min-width: 2000px;
+}
+
+.text-des {
+    font-size: 18px;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+}
+
+.background-vd {
+    width: 100%;
+    height: 100%;
+}
+
+/*
+    Mo dau
+*/
+
+.wrapper-content {
+    z-index: 1;
+}
+
+.wrapper {
+    overflow-y: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.wrapper::-webkit-scrollbar {
+    width: 6px;
+    height: 90%;
+}
+
+.wrapper::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0.2;
+    border-radius: 30px;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    height: 20px;
+    width: 20px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+}
+
+.main {
+    width: 300vw;
+    height: 100vh;
+}
+
+.modau {
+    width: 100vw;
+    height: 100vh;
+}
+
+.modau-1 {
+    font-family: 'Pangolin', cursive;
+    font-size: 90px;
+}
+
+.modau-2 {}
+
+.modau-3 {}
+
+.modau-4 {}
+
+.path {
+    width: 100%;
+    max-width: 700px;
+    min-width: 700px;
+    margin-top: 350px;
+    position: relative;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background: white;
+    z-index: 1;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+}
+
+.dot:nth-child(2) {
+    left: 120px;
+    top: 18px;
+}
+
+.dot:nth-child(3) {
+    left: 225px;
+    top: 12px;
+}
+
+.dot:nth-child(4) {
+    left: 340px;
+    top: 4px;
+}
+
+.dot:nth-child(5) {
+    left: 470px;
+    top: 18px;
+}
+
+.dot:nth-child(6) {
+    left: 575px;
+    top: 38px;
+}
+
+.dot:nth-child(7) {
+    left: 685px;
+    top: 53px;
+}
+
+.line {
+    width: 100%;
+    background: white;
+    height: 1px;
+}
+
+.modau-c {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    color: white;
+}
+
+.modau-c::before {
+    content: '';
+    width: 215px;
+    height: 215px;
+    position: absolute;
+    border: 1px solid #828382;
+    border-radius: 50%;
+    top: -8px;
+    left: -8px;
+}
+
+.modau-c:hover::before {
+    border: 4px solid #828382;
+}
+
+.modau-c b {
+    position: absolute;
+    top: -60px;
+    left: -25px;
+    font-size: 21px;
+    width: 265px;
+    text-align: center;
+}
+
+.click {
+    position: absolute;
+    bottom: -100px;
+    left: -32px;
+    font-size: 21px;
+    width: 265px;
+    text-align: center;
+    font-family: 'Pangolin', cursive;
+}
+
+.modau-c1 {
+    top: -240px;
+    left: -90px;
+}
+
+.modau-c2 {
+    top: -230px;
+    left: 255px;
+}
+
+.modau-c3 {
+    top: -185px;
+    left: 595px;
+}
+
+.modal-hyper {
+    background: black;
+    color: white;
+    max-width: 1140px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 25px 75px;
+}
+
+.modal-hyper p {
+    color: white;
+    /* font-size: 18px; */
+    text-align: left;
+}
+
+.hyper-content {
+    background: black;
+    padding: 100px 24px;
+}
+
+/*
+    Chuong 1
+*/
+
+.chuong1 {
+    position: relative;
+}
+
+.chuong1-gradient {
+    background: rgb(255, 255, 255);
+    color: white;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 1) 33%);
+}
+
+.chuong1-gradient-2 {
+    background: rgb(255, 255, 255);
+    color: black;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 1) 85%);
+}
+
+.chuong1-gradient-3 {
+    background: rgb(255, 255, 255);
+    color: black;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 1) 85%);
+}
+
+.chuong1-black {
+    position: relative;
+    background: black;
+    color: white;
+}
+
+.chuong1-cover {
+    position: absolute;
+    top: 0;
+}
+
+.chuong1-cover p {
+    color: black;
+}
+
+.chuong1-content-inner {
+    position: absolute;
+    top: 50px;
+}
+
+.chuong1-12 {
+    padding-top: 200px;
+}
+
+.chuong1-19 {
+    position: absolute;
+    left: 90px;
+}
+
+.chuong1-22-1 {
+    margin-top: -38px;
+}
+
+.chuong1-22-3 {
+    margin-top: -85px;
+}
+
+.chuong1-23-1 {
+    width: 100vw;
+    height: 700px;
+    font-family: 'Pangolin', cursive;
+}
+
+.chuong1-23-1 p {
+    font-family: 'Pangolin', cursive;
+    font-size: 35px;
+}
+
+.chuong1-24 {
+    /* position: absolute;
+    top: 50px;
+    color: black; */
+}
+
+.chuong1-29 {
+    position: absolute;
+    top: 350px;
+    color: white;
+    left: 50px;
+}
+
+/**
+    Chuong 2
+*/
+
+.chuong2-cover {
+    position: absolute;
+    top: 0;
+}
+
+.chuong2-gradient {
+    padding-top: 150px;
+    margin-top: -120px;
+    background: rgb(255, 255, 255);
+    color: white;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 1) 10%);
+}
+
+.chuong2-gradient-2 {
+    background: rgb(255, 255, 255);
+    color: white;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 1) 85%);
+}
+
+.chuong2-black {
+    position: relative;
+    background: black;
+    color: white;
+}
+
+.chuong2-1 {
+    font-family: 'Pangolin', cursive;
+    font-size: 35px;
+}
+
+.chuong2-30 {
+    font-family: 'Pangolin', cursive;
+    font-size: 45px;
+    padding-bottom: 150px;
+}
+
+
+/**
+    Chuong 3
+*/
+
+.chuong3-black {
+    position: relative;
+    background: black;
+    color: white;
+}
+
+.chuong3-1 {
+    font-family: 'Pangolin', cursive;
+    font-size: 35px;
+    padding: 300px 0;
+}
+
+.chuong3-relative {
+    position: relative;
+}
+
+.chuong3-2 {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    color: white;
+}
+
+.space-chuong3-2 {
+    width: 1px;
+    height: 300px;
+}
+
+.chuong3-gradient {
+    /* padding-top: 150px;
+    margin-top: -120px; */
+    background: rgb(255, 255, 255);
+    color: white;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 1) 10%);
+}
+
+.chuong3-gradient-2 {
+    background: rgb(255, 255, 255);
+    color: white;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 1) 85%);
+}
+
+.chuong3-hyper-title {
+    font-family: 'Pangolin', cursive;
+    font-size: 50px;
+    text-align: center !important;
+}
+
+.chuong4-gradient {
+    background: rgb(255, 255, 255);
+    color: white;
+    padding: 100px 0;
+    margin-top: -65px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 1) 50%);
+}
+
+.position {
+    position: absolute;
+    top: 30%;
+    left: 35px;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.start {
+    cursor: pointer;
+}
+
+.bong1 {
+    position: absolute;
+    width: 27%;
+    top: -14%;
+    left: 8%;
+}
+
+.text-bong1 {
+    position: absolute;
+    top: 19%;
+    height: 100%;
+    width: 100%;
+    padding-left: 8%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+}
+
+.bong2 {
+    position: absolute;
+    width: 25%;
+    top: 14%;
+    left: 26%;
+}
+
+.text-bong2 {
+    position: absolute;
+    top: 12%;
+    height: 100%;
+    width: 100%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+    padding-left: 12%;
+}
+
+.bong3 {
+    position: absolute;
+    width: 32%;
+    top: -11%;
+    left: 60%;
+}
+
+.text-bong3 {
+    position: absolute;
+    top: 20%;
+    height: 100%;
+    width: 100%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+    padding-left: 10%;
+}
+
+.bong81 {
+    position: absolute;
+    width: 23%;
+    top: 35%;
+    left: 8%;
+}
+
+.text-bong81 {
+    position: absolute;
+    top: 19%;
+    height: 100%;
+    width: 100%;
+    padding-left: 13%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+}
+
+.bong82 {
+    position: absolute;
+    width: 18%;
+    top: 1%;
+    left: 52%;
+}
+
+.text-bong82 {
+    position: absolute;
+    top: 24%;
+    height: 100%;
+    width: 100%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+    padding-left: 16%;
+}
+
+.bong3111 {
+    position: absolute;
+    width: 21%;
+    top: -3%;
+    left: 14%;
+}
+
+.text-bong3111 {
+    position: absolute;
+    top: 24%;
+    height: 100%;
+    width: 100%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+    padding-left: 16%;
+}
+
+.bong3112 {
+    position: absolute;
+    width: 29%;
+    top: -7%;
+    left: 64%;
+}
+
+.text-bong3112 {
+    position: absolute;
+    top: 26%;
+    height: 100%;
+    width: 100%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+    padding-left: 16%;
+}
+
+.bong3151 {
+    position: absolute;
+    width: 26%;
+    top: -2%;
+    left: 11%;
+}
+
+.text-bong3151 {
+    position: absolute;
+    top: 30%;
+    height: 100%;
+    width: 100%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+    padding-left: 16%;
+}
+
+.bong3152 {
+    position: absolute;
+    width: 27%;
+    top: -15%;
+    left: 51%;
+}
+
+.text-bong3152 {
+    position: absolute;
+    top: 24%;
+    height: 100%;
+    width: 100%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+    padding-left: 16%;
+}
+
+.bong3231 {
+    position: absolute;
+    width: 27%;
+    top: 8%;
+    left: 51%;
+}
+
+.text-bong3231 {
+    position: absolute;
+    top: 24%;
+    height: 100%;
+    width: 100%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+    padding-left: 16%;
+    color: black;
+}
+
+.bong3331 {
+    position: absolute;
+    width: 27%;
+    top: 30%;
+    left: 33%;
+}
+
+.text-bong3331 {
+    position: absolute;
+    top: 24%;
+    height: 100%;
+    width: 100%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+    padding-left: 16%;
+    color: black;
+}
+
+.bong3332 {
+    position: absolute;
+    width: 27%;
+    top: 32%;
+    left: 62%;
+}
+
+.text-bong3332 {
+    position: absolute;
+    top: 24%;
+    height: 100%;
+    width: 100%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+    padding-left: 16%;
+    color: black;
+}
+
+.bong421 {
+    position: absolute;
+    width: 19%;
+    top: -4%;
+    left: 82%;
+}
+
+.text-bong421 {
+    position: absolute;
+    top: 15%;
+    height: 100%;
+    width: 100%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+    padding-left: 16%;
+    color: black;
+}
+
+.bong481 {
+    position: absolute;
+    width: 15%;
+    top: 3%;
+    left: 21%;
+}
+
+.text-bong481 {
+    position: absolute;
+    top: 23%;
+    height: 100%;
+    width: 100%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+    padding-left: 22%;
+    color: black;
+}
+
+.bong482 {
+    position: absolute;
+    width: 16%;
+    top: 12%;
+    left: 66%;
+}
+
+.text-bong482 {
+    position: absolute;
+    top: 21%;
+    height: 100%;
+    width: 100%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+    padding-left: 16%;
+    color: black;
+}
+
+.bong4101 {
+    position: absolute;
+    width: 25%;
+    top: 14%;
+    left: 31%;
+}
+
+.text-bong4101 {
+    position: absolute;
+    top: 21%;
+    height: 100%;
+    width: 100%;
+    font-family: 'Pangolin', cursive;
+    font-size: 0.9em;
+    padding-left: 16%;
+    color: black;
+}
+
+
+.muiten-cuonchuot {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 150px;
+    height: 50px;
+    flex-direction: column;
+}
+
+.muiten-cuonchuot p {
+    font-family: 'Pangolin', cursive;
+}
+
+.muiten-cuonchuot .normal {
+    /* animation: MoveUpDown 1s linear infinite; */
+    animation: MoveUpDownNgang 1s linear infinite;
+}
+
+.muiten-cuonchuot .xoay {
+    transform: rotate(180deg);
+    animation: MoveUpDownXoay 1s linear infinite;
+}
+
+.muiten-cuonchuot .duoi {
+    transform: rotate(90deg) translateX(-20px);
+    animation: MoveUpDown 1s linear infinite;
+}
+
+@keyframes MoveUpDown {
+
+    0%,
+    100% {
+        transform: rotate(90deg) translateX(-30px);
+    }
+
+    50% {
+        transform: rotate(90deg) translateX(-20px);
+    }
+}
+
+@keyframes MoveUpDownXoay {
+
+    0%,
+    100% {
+        transform: rotate(180deg) translateX(0px);
+    }
+
+    50% {
+        transform: rotate(180deg) translateX(-10px);
+    }
+}
+
+@keyframes MoveUpDownNgang {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-10px);
+    }
+}
