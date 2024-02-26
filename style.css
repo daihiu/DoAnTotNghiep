@@ -126,44 +126,44 @@
 
 .dot2 {
     position: relative;
-    top: 4.1em;
-    left: 13em;
+    top: 3.6em;
+    left: 26em;
 }
 
 .dot3 {
     position: relative;
-    top: 4.1em;
-    left: 13em;
+    top: -1.55em;
+    left: 37em;
 }
 
 .dot4 {
     position: relative;
-    top: 4.1em;
-    left: 13em;
+    top: -7.1em;
+    left: 45.2em;
 }
 
 .dot5 {
     position: relative;
-    top: 4.1em;
-    left: 13em;
+    top: 0.4em;
+    left: 56em;
 }
 
 .dot6 {
     position: relative;
-    top: 4.1em;
-    left: 13em;
+    top: 7.2em;
+    left: 62em;
 }
 
 .dot7 {
     position: relative;
-    top: 4.1em;
-    left: 13em;
+    top: 12.6em;
+    left: 72em;
 }
 
 .dot8 {
     position: relative;
-    top: 4.1em;
-    left: 13em;
+    top: 7.8em;
+    left: 79.5em;
 }
 
 .imageScr2 {
@@ -263,10 +263,9 @@
     }
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1600px) {}
 
-    .panel.spotlight .content {
-        min-height: 30rem;
-    }
 
-}
+
+/* how to get height of image */
+/* https://stackoverflow.com/questions/318630/get-real-image-width-and-height-with-javascript-in-chrome */
