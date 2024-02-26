@@ -182,6 +182,13 @@
     width: 250px;
 }
 
+.titleAndImg1 {
+    position: relative;
+    transform: translateX(-45%);
+    top: -380px;
+    width: 250px;
+}
+
 .titleImgScr2 {
     font-size: 26px;
     position: relative;
@@ -196,6 +203,28 @@
         width: 200px;
         top: -285px;
         transform: translateX(-47%);
+    }
+
+    .titleAndImg1 {
+        position: relative;
+        transform: translateX(-38%);
+        top: -320px;
+        width: 250px;
+    }
+
+    .titleAndImg2{
+        position: relative;
+        transform: translateX(-37%);
+        top: -280px;
+        width: 250px;
+    }
+
+    .titleImgScr2-1{
+        font-size: 24px;
+        position: relative;
+        margin: 0;
+        font-weight: bold;
+        left: -45px !important;
     }
 
     .titleImgScr2 {
