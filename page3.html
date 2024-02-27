@@ -7,18 +7,37 @@
     <title>Hĩu Đại</title>
     <link rel="stylesheet" href="./style.css">
     <style>
-        /* .content-page-3 {
-            position: relative;
-        } */
-
         .content-page-3 img {
             width: 100%;
         }
+
         #img-scroll {
             max-height: 1064px;
             overflow: hidden;
         }
+
         #img-2 {
+            display: none;
+        }
+
+        #img-scroll-2 {
+            max-height: 1064px;
+            overflow: hidden;
+        }
+
+        #img-4 {
+            display: none;
+        }
+
+        #img-5 {
+            display: none;
+        }
+
+        #img-6 {
+            display: none;
+        }
+
+        #img-7 {
             display: none;
         }
     </style>
@@ -26,20 +45,30 @@
 </head>
 
 <body>
-    <div class="content-page-3" style="display: flex; flex-direction: column;">
-        <img src="./page3/3.1.png" alt="" style="z-index: 5;">
-        <img src="./page3/3.2.png" alt="" style="z-index: 4;">
-        <img src="./page3/3.3.png" alt="" style="z-index: 3; transform: translateY(-1px);">
+    <div class="content-page-3" style="display: flex; flex-direction: column; height: fit-content;">
+        <img src="./page3/3.1.png" alt="">
+        <img src="./page3/3.2.png" alt="" style="z-index: 1;">
+        <img src="./page3/3.3.png" alt="" style="z-index: 0; transform: translateY(-1px);">
+
         <div id="img-scroll" style="transform: translateY(-2px); display: flex; flex-direction: column;">
             <img id="img-1" src="./page3/3.4.1.png" alt="">
             <img id="img-2" src="./page3/3.4.2.png" alt="">
         </div>
-        <img src="./page3/3.5.gif" alt="" style="z-index: 1; transform: translateY(-1.98px);">
+
+        <img src="./page3/3.5.gif" alt="" style="transform: translateY(-1.98px);">
+        <img src="./page3/3.6.png" alt="" style="transform: translateY(-1.98px);">
+
+        <div id="img-scroll-2" style="transform: translateY(-2px); display: flex; flex-direction: column;">
+            <img id="img-3" src="./page3/3.7.png" alt="" style="transform: translateY(-1.98px);">
+            <img id="img-4" src="./page3/3.8.png" alt="" style="transform: translateY(-1.98px);">
+            <img id="img-5" src="./page3/3.9.png" alt="" style="transform: translateY(-1.98px);">
+            <img id="img-6" src="./page3/3.10.png" alt="" style="transform: translateY(-1.98px);">
+            <img id="img-7" src="./page3/3.11.png" alt="" style="transform: translateY(-1.98px);">
+        </div>
     </div>
 
     <script>
-        $(window).on('scroll', function() {
-            console.log('scroll');
+        $(window).on('scroll', function () {
             if ($(window).scrollTop() >= $('#img-scroll').offset().top + $('#img-scroll').outerHeight() - window.innerHeight) {
                 $('#img-1').css('display', 'none');
                 $('#img-2').css('display', 'block');
@@ -48,12 +77,6 @@
                 $('#img-2').css('display', 'none');
             }
         });
-        // var heightElement1 = document.getElementById("element1").clientHeight;
-        // document.getElementById("element2").style.top = heightElement1 + "px";
-
-        // var heightElement2 = document.getElementById("element2").clientHeight;
-        // document.getElementById("element3").style.top = heightElement1 + heightElement2 - 1.55 + "px";
-        
     </script>
 </body>
 
