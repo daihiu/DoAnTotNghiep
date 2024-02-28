@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hĩu Đại</title>
+    <link rel="stylesheet" href="./slick/slick-theme.css">
+    <link rel="stylesheet" href="./slick/slick.css">
     <link rel="stylesheet" href="./style.css">
     <style>
         .content-page-3 img {
@@ -20,28 +22,52 @@
             display: none;
         }
 
-        #img-scroll-2 {
-            max-height: 1064px;
-            overflow: hidden;
+        .fullpage-wrapper {
+            width: 100% !important;
+            transform: none !important;
         }
 
-        #img-4 {
-            display: none;
+        .fullpage-wrapper .fp-section {
+            width: 100% !important;
+            position: absolute;
+            left: 0;
+            top: 0;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 0;
+            transition: all 0.7s ease-in-out;
         }
 
-        #img-5 {
-            display: none;
+        .fullpage-wrapper .fp-section.active {
+            visibility: visible;
+            opacity: 1;
+            z-index: 1;
         }
 
-        #img-6 {
-            display: none;
+        .fullpage-wrapper .fp-section .fp-slidesContainer {
+            width: 100% !important;
+            transform: none !important;
         }
 
-        #img-7 {
-            display: none;
+        .fullpage-wrapper .fp-section .fp-slidesContainer .fp-slide {
+            width: 100% !important;
+            position: absolute;
+            left: 0;
+            top: 0;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 0;
+            transition: all 0.7s ease-in-out;
+        }
+
+        .fullpage-wrapper .fp-section .fp-slidesContainer .fp-slide.active {
+            visibility: visible;
+            opacity: 1;
+            z-index: 1;
         }
     </style>
     <script src="./jquery-3.7.1.min.js"></script>
+    <script src="./slick/slick.min.js"></script>
 </head>
 
 <body>
@@ -58,12 +84,12 @@
         <img src="./page3/3.5.gif" alt="" style="transform: translateY(-1.98px);">
         <img src="./page3/3.6.png" alt="" style="transform: translateY(-1.98px);">
 
-        <div id="img-scroll-2" style="transform: translateY(-2px); display: flex; flex-direction: column;">
-            <img id="img-3" src="./page3/3.7.png" alt="" style="transform: translateY(-1.98px);">
-            <img id="img-4" src="./page3/3.8.png" alt="" style="transform: translateY(-1.98px);">
-            <img id="img-5" src="./page3/3.9.png" alt="" style="transform: translateY(-1.98px);">
-            <img id="img-6" src="./page3/3.10.png" alt="" style="transform: translateY(-1.98px);">
-            <img id="img-7" src="./page3/3.11.png" alt="" style="transform: translateY(-1.98px);">
+        <div id="img-scroll-2" class="image-slide fullpage-wrapper" style="transform: translateY(-2px) !important;">
+            <img id="img-3" src="./page3/3.7.png" alt="">
+            <img id="img-4" class="inactive" src="./page3/3.8.png" alt="">
+            <img id="img-5" class="inactive" src="./page3/3.9.png" alt="">
+            <img id="img-6" class="inactive" src="./page3/3.10.png" alt="">
+            <img id="img-7" class="inactive" src="./page3/3.11.png" alt="">
         </div>
     </div>
 
@@ -77,6 +103,51 @@
                 $('#img-2').css('display', 'none');
             }
         });
+        // $(window).on('scroll', function (e) {
+        //     const img = $('#img-scroll-2').find('img');
+        //     let i = 0;
+        //     clearTimeout($.data(this, 'scrollTimer'));
+        //     $.data(this, 'scrollTimer', setTimeout(function() {
+        //         // do something
+        //         i++;
+        //         console.log(i);
+        //     }, 250));
+        // if ($(window).scrollTop() >= $('#img-scroll-2').offset().top + $('#img-scroll-2').outerHeight() - window.innerHeight) {
+
+        //     $.data(this, 'scrollTimer', setTimeout(function() {
+        //         i++;
+        //         console.log(i, img[i]);
+        //         $(img[i]).removeClass('inactive');
+        //         img.prev().addClass('inactive');
+        //     }, 250));
+        // } else {
+        //     clearTimeout($.data(this, 'scrollTimer'));
+        //     $.data(this, 'scrollTimer', setTimeout(function() {
+        //         i--;
+        //         $(img[i]).removeClass('inactive');
+        //         img.next().addClass('inactive');
+        //     }, 250));
+        // }
+        // });
+
+        $('#img-scroll-2').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: false,
+            dots: false,
+            infinite: false,
+            adaptiveHeight: true,
+            arrows: false,
+            speed: 0,
+        }).on('wheel', (function (e) {
+            // e.preventDefault();
+            //check if scroll multiple times
+            if (e.originalEvent.deltaY < 0) {
+                $(this).slick('slickPrev');
+            } else {
+                $(this).slick('slickNext');
+            }
+        }));
     </script>
 </body>
 
