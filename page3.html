@@ -65,6 +65,110 @@
             opacity: 1;
             z-index: 1;
         }
+
+        /* animation decrease opacity */
+        .disapear {
+            opacity: 0 !important;
+            transition: all 1.5s linear;
+        }
+
+        .apear {
+            opacity: 1 !important;
+            transition: all 1.5s linear;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            10%{
+                opacity: 0.1;
+            }
+
+            20%{
+                opacity: 0.2;
+            }
+
+            30%{
+                opacity: 0.3;
+            }
+
+            40%{
+                opacity: 0.4;
+            }
+
+            50%{
+                opacity: 0.5;
+            }
+
+            60%{
+                opacity: 0.6;
+            }
+
+            70%{
+                opacity: 0.7;
+            }
+
+            80%{
+                opacity: 0.8;
+            }
+
+            90%{
+                opacity: 0.9;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut{
+            0% {
+                opacity: 1;
+            }
+
+            10%{
+                opacity: 0.9;
+            }
+
+            20%{
+                opacity: 0.8;
+            }
+
+            30%{
+                opacity: 0.7;
+            }
+
+            40%{
+                opacity: 0.6;
+            }
+
+            50%{
+                opacity: 0.5;
+            }
+
+            60%{
+                opacity: 0.4;
+            }
+
+            70%{
+                opacity: 0.3;
+            }
+
+            80%{
+                opacity: 0.2;
+            }
+
+            90%{
+                opacity: 0.1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
     </style>
     <script src="./jquery-3.7.1.min.js"></script>
     <script src="./slick/slick.min.js"></script>
@@ -91,6 +195,12 @@
             <img id="img-6" class="inactive" src="./page3/3.10.png" alt="">
             <img id="img-7" class="inactive" src="./page3/3.11.png" alt="">
         </div>
+
+        <div id="img-scroll-3" style="transform: translateY(-2px);">
+            <img id="img-8" class="apear" src="./page3/3.12.png" alt="" style="position: absolute;">
+            <img id="img-9" style="opacity: 0;" class="disapear" src="./page3/3.13.png" alt="">
+        </div>
+
     </div>
 
     <script>
@@ -103,6 +213,38 @@
                 $('#img-2').css('display', 'none');
             }
         });
+
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop() >= $('#img-scroll-3').offset().top + $('#img-scroll-3').outerHeight() / 2 - window.innerHeight) {
+                $('#img-8').removeClass('apear');
+                $('#img-8').addClass('disapear');
+                $('#img-9').removeClass('disapear');
+                $('#img-9').addClass('apear');
+            } else {
+                $('#img-8').removeClass('disapear');
+                $('#img-8').addClass('apear');
+                $('#img-9').removeClass('apear');
+                $('#img-9').addClass('disapear');
+            }
+            // if ($(window).scrollTop() >= $('#img-scroll-3').offset().top + $('#img-scroll-3').outerHeight() - window.innerHeight) {
+            //     $('#img-8').removeClass('apear');
+            //     $('#img-8').addClass('disapear');
+            //     $('#img-9').removeClass('disapear');
+            //     $('#img-9').addClass('apear');
+            // } else {
+            //     $('#img-8').removeClass('disapear');
+            //     $('#img-8').addClass('apear');
+            //     $('#img-9').removeClass('apear');
+            //     $('#img-9').addClass('disapear');
+            // }
+        });
+
+        //when mouse on #img-scroll-2, make window scroll become slower
+        $('#img-scroll-2').on('mouseenter', function () {
+            $(window).off('scroll');
+        });
+        
+        
         // $(window).on('scroll', function (e) {
         //     const img = $('#img-scroll-2').find('img');
         //     let i = 0;
