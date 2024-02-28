@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hĩu Đại</title>
+    <link rel="stylesheet" href="./slick/slick-theme.css">
+    <link rel="stylesheet" href="./slick/slick.css">
     <link rel="stylesheet" href="./style.css">
     <style>
         .content-page-3 img {
@@ -20,28 +22,156 @@
             display: none;
         }
 
-        #img-scroll-2 {
-            max-height: 1064px;
-            overflow: hidden;
+        .fullpage-wrapper {
+            width: 100% !important;
+            transform: none !important;
         }
 
-        #img-4 {
-            display: none;
+        .fullpage-wrapper .fp-section {
+            width: 100% !important;
+            position: absolute;
+            left: 0;
+            top: 0;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 0;
+            transition: all 0.7s ease-in-out;
         }
 
-        #img-5 {
-            display: none;
+        .fullpage-wrapper .fp-section.active {
+            visibility: visible;
+            opacity: 1;
+            z-index: 1;
         }
 
-        #img-6 {
-            display: none;
+        .fullpage-wrapper .fp-section .fp-slidesContainer {
+            width: 100% !important;
+            transform: none !important;
         }
 
-        #img-7 {
-            display: none;
+        .fullpage-wrapper .fp-section .fp-slidesContainer .fp-slide {
+            width: 100% !important;
+            position: absolute;
+            left: 0;
+            top: 0;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 0;
+            transition: all 0.7s ease-in-out;
         }
+
+        .fullpage-wrapper .fp-section .fp-slidesContainer .fp-slide.active {
+            visibility: visible;
+            opacity: 1;
+            z-index: 1;
+        }
+
+        /* animation decrease opacity */
+        .disapear {
+            opacity: 0 !important;
+            transition: all 1.5s linear;
+        }
+
+        .apear {
+            opacity: 1 !important;
+            transition: all 1.5s linear;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            10%{
+                opacity: 0.1;
+            }
+
+            20%{
+                opacity: 0.2;
+            }
+
+            30%{
+                opacity: 0.3;
+            }
+
+            40%{
+                opacity: 0.4;
+            }
+
+            50%{
+                opacity: 0.5;
+            }
+
+            60%{
+                opacity: 0.6;
+            }
+
+            70%{
+                opacity: 0.7;
+            }
+
+            80%{
+                opacity: 0.8;
+            }
+
+            90%{
+                opacity: 0.9;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut{
+            0% {
+                opacity: 1;
+            }
+
+            10%{
+                opacity: 0.9;
+            }
+
+            20%{
+                opacity: 0.8;
+            }
+
+            30%{
+                opacity: 0.7;
+            }
+
+            40%{
+                opacity: 0.6;
+            }
+
+            50%{
+                opacity: 0.5;
+            }
+
+            60%{
+                opacity: 0.4;
+            }
+
+            70%{
+                opacity: 0.3;
+            }
+
+            80%{
+                opacity: 0.2;
+            }
+
+            90%{
+                opacity: 0.1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
     </style>
     <script src="./jquery-3.7.1.min.js"></script>
+    <script src="./slick/slick.min.js"></script>
 </head>
 
 <body>
@@ -58,13 +188,19 @@
         <img src="./page3/3.5.gif" alt="" style="transform: translateY(-1.98px);">
         <img src="./page3/3.6.png" alt="" style="transform: translateY(-1.98px);">
 
-        <div id="img-scroll-2" style="transform: translateY(-2px); display: flex; flex-direction: column;">
-            <img id="img-3" src="./page3/3.7.png" alt="" style="transform: translateY(-1.98px);">
-            <img id="img-4" src="./page3/3.8.png" alt="" style="transform: translateY(-1.98px);">
-            <img id="img-5" src="./page3/3.9.png" alt="" style="transform: translateY(-1.98px);">
-            <img id="img-6" src="./page3/3.10.png" alt="" style="transform: translateY(-1.98px);">
-            <img id="img-7" src="./page3/3.11.png" alt="" style="transform: translateY(-1.98px);">
+        <div id="img-scroll-2" class="image-slide fullpage-wrapper" style="transform: translateY(-2px) !important;">
+            <img id="img-3" src="./page3/3.7.png" alt="">
+            <img id="img-4" class="inactive" src="./page3/3.8.png" alt="">
+            <img id="img-5" class="inactive" src="./page3/3.9.png" alt="">
+            <img id="img-6" class="inactive" src="./page3/3.10.png" alt="">
+            <img id="img-7" class="inactive" src="./page3/3.11.png" alt="">
         </div>
+
+        <div id="img-scroll-3" style="transform: translateY(-2px);">
+            <img id="img-8" class="apear" src="./page3/3.12.png" alt="" style="position: absolute;">
+            <img id="img-9" style="opacity: 0;" class="disapear" src="./page3/3.13.png" alt="">
+        </div>
+
     </div>
 
     <script>
@@ -77,6 +213,83 @@
                 $('#img-2').css('display', 'none');
             }
         });
+
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop() >= $('#img-scroll-3').offset().top + $('#img-scroll-3').outerHeight() / 2 - window.innerHeight) {
+                $('#img-8').removeClass('apear');
+                $('#img-8').addClass('disapear');
+                $('#img-9').removeClass('disapear');
+                $('#img-9').addClass('apear');
+            } else {
+                $('#img-8').removeClass('disapear');
+                $('#img-8').addClass('apear');
+                $('#img-9').removeClass('apear');
+                $('#img-9').addClass('disapear');
+            }
+            // if ($(window).scrollTop() >= $('#img-scroll-3').offset().top + $('#img-scroll-3').outerHeight() - window.innerHeight) {
+            //     $('#img-8').removeClass('apear');
+            //     $('#img-8').addClass('disapear');
+            //     $('#img-9').removeClass('disapear');
+            //     $('#img-9').addClass('apear');
+            // } else {
+            //     $('#img-8').removeClass('disapear');
+            //     $('#img-8').addClass('apear');
+            //     $('#img-9').removeClass('apear');
+            //     $('#img-9').addClass('disapear');
+            // }
+        });
+
+        //when mouse on #img-scroll-2, make window scroll become slower
+        $('#img-scroll-2').on('mouseenter', function () {
+            $(window).off('scroll');
+        });
+        
+        
+        // $(window).on('scroll', function (e) {
+        //     const img = $('#img-scroll-2').find('img');
+        //     let i = 0;
+        //     clearTimeout($.data(this, 'scrollTimer'));
+        //     $.data(this, 'scrollTimer', setTimeout(function() {
+        //         // do something
+        //         i++;
+        //         console.log(i);
+        //     }, 250));
+        // if ($(window).scrollTop() >= $('#img-scroll-2').offset().top + $('#img-scroll-2').outerHeight() - window.innerHeight) {
+
+        //     $.data(this, 'scrollTimer', setTimeout(function() {
+        //         i++;
+        //         console.log(i, img[i]);
+        //         $(img[i]).removeClass('inactive');
+        //         img.prev().addClass('inactive');
+        //     }, 250));
+        // } else {
+        //     clearTimeout($.data(this, 'scrollTimer'));
+        //     $.data(this, 'scrollTimer', setTimeout(function() {
+        //         i--;
+        //         $(img[i]).removeClass('inactive');
+        //         img.next().addClass('inactive');
+        //     }, 250));
+        // }
+        // });
+
+        $('#img-scroll-2').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: false,
+            dots: false,
+            infinite: false,
+            adaptiveHeight: true,
+            arrows: false,
+            speed: 0,
+        }).on('wheel', (function (e) {
+            // e.preventDefault();
+            //check if scroll multiple times
+            if (e.originalEvent.deltaY < 0) {
+                $(this).slick('slickPrev');
+            } else {
+                $(this).slick('slickNext');
+            }
+        }));
     </script>
 </body>
 
