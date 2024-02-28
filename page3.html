@@ -215,7 +215,8 @@
         });
 
         $(window).on('scroll', function () {
-            if ($(window).scrollTop() >= $('#img-scroll-3').offset().top + $('#img-scroll-3').outerHeight() / 2 - window.innerHeight) {
+            
+            if ($(window).scrollTop() >= $('#img-scroll-3').offset().top + $('#img-scroll-3').outerHeight() - window.innerHeight) {
                 $('#img-8').removeClass('apear');
                 $('#img-8').addClass('disapear');
                 $('#img-9').removeClass('disapear');
@@ -226,22 +227,6 @@
                 $('#img-9').removeClass('apear');
                 $('#img-9').addClass('disapear');
             }
-            // if ($(window).scrollTop() >= $('#img-scroll-3').offset().top + $('#img-scroll-3').outerHeight() - window.innerHeight) {
-            //     $('#img-8').removeClass('apear');
-            //     $('#img-8').addClass('disapear');
-            //     $('#img-9').removeClass('disapear');
-            //     $('#img-9').addClass('apear');
-            // } else {
-            //     $('#img-8').removeClass('disapear');
-            //     $('#img-8').addClass('apear');
-            //     $('#img-9').removeClass('apear');
-            //     $('#img-9').addClass('disapear');
-            // }
-        });
-
-        //when mouse on #img-scroll-2, make window scroll become slower
-        $('#img-scroll-2').on('mouseenter', function () {
-            $(window).off('scroll');
         });
         
         
