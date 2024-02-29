@@ -4,6 +4,10 @@
 // Là kỷ niệm, là trải nghiệm, là kiến thức..
 // còn với những đứa trẻ ở mảnh đất đó
 // du lịch là một phần tâm hồn.
+
+//clear the session storage and cache
+
+
 var aText = new Array(
     "Du lịch với bạn là gì?",
     "Là kỷ niệm, là trải nghiệm, là kiến thức...",
@@ -50,9 +54,10 @@ setTimeout(function () {
 
 function startShowOtherScreen() {
     //hide the main page
+    sessionStorage.clear();
     console.log("start");
     //set session storage to store the data
-    sessionStorage.setItem("data", "0");
+    sessionStorage.setItem("data", "nothing");
     //data will expire after 24h
     setTimeout(function () {
         sessionStorage.clear();
@@ -69,9 +74,9 @@ function startShowOtherScreen() {
 
 function setSessionStorage(x) {
     var session = sessionStorage.getItem("data");
-    if (session == "0") {
-        sessionStorage.setItem("data", x);
+    if (session == "nothing") {
+        sessionStorage.setItem("data", "ok" + x.toString());
     } else {
-        sessionStorage.setItem("data", "0" + x.toString());
+        sessionStorage.setItem("data", session + x.toString());
     }
 }

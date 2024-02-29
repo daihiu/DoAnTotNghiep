@@ -7,7 +7,7 @@
 <html>
 
 <head>
-	<title>Hĩu Đại</title>
+	<title>Du Lịch</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
@@ -16,6 +16,7 @@
 	</noscript>
 	<link rel="stylesheet" href="./style.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	<link rel="icon" href="./hundred-points.png" type="image/icon type">
 </head>
 
 <body>
@@ -31,13 +32,25 @@
 	<!-- Wrapper -->
 	<div id="wrapper" style="display: none;">
 		<script>
-			if (sessionStorage.getItem("data") == "0") {
+			if ((sessionStorage.getItem("data") == "nothing"
+				|| sessionStorage.getItem("data").match('1')
+				|| sessionStorage.getItem("data").match('2')
+				|| sessionStorage.getItem("data").match('3'))
+				&& !(sessionStorage.getItem("data").includes("1")
+					&& sessionStorage.getItem("data").includes("2")
+					&& sessionStorage.getItem("data").includes("3"))) {
 				document.getElementById("firstPage").style.display = "none";
 				//show the other screen
 				document.getElementById("wrapper").style.display = "flex";
 				//add music for main page
 				var audio = new Audio('./sounds/dulich.mp3');
 				audio.play();
+			} else if (sessionStorage.getItem("data").includes("1")
+				&& sessionStorage.getItem("data").includes("2")
+				&& sessionStorage.getItem("data").includes("3")) {
+				//reset the session storage
+				sessionStorage.clear();
+				window.location.href = "page4.html";
 			}
 		</script>
 		<!-- Panel (Banner) -->
@@ -59,7 +72,7 @@
 				style="background-image: url('./imgs/back3only.png'); background-size: contain;">
 				<img style="width: 110%; transform: translate(-5%, 0%);" src="./imgs/curveline.png" alt="" />
 				<div style="position: absolute; transform: translateY(47%);" class="dots">
-					<a href="page1.html" onclick="">
+					<a href="page1.html" onclick="setSessionStorage('1')">
 						<div class="dot hoverClickScreen2 dot1">
 							<div class="circle delay1"></div>
 							<div class="circle delay2"></div>
@@ -78,7 +91,7 @@
 					</div>
 					<div class="dot dot3">
 					</div>
-					<a href="page2.html" onclick="">
+					<a href="page2.html" onclick="setSessionStorage('2')">
 						<div class="dot dot4 hoverClickScreen2">
 							<div class="circle delay1"></div>
 							<div class="circle delay2"></div>
@@ -97,7 +110,7 @@
 					</div>
 					<div class="dot dot6">
 					</div>
-					<a href="page3.html" onclick="">
+					<a href="page3.html" onclick="setSessionStorage('3')">
 						<div class="dot dot7 hoverClickScreen2">
 							<div class="circle delay1"></div>
 							<div class="circle delay2"></div>
@@ -107,7 +120,9 @@
 								Click
 							</div>
 							<div class="titleAndImg titleAndImg1">
-								<p class="titleImgScr2 titleImgScr2-1" style="text-align: center; transform: translateX(3px);">Cơ hội ra biển từ dòng suối nhỏ</p>
+								<p class="titleImgScr2 titleImgScr2-1"
+									style="text-align: center; transform: translateX(3px);">Cơ hội ra biển từ dòng suối
+									nhỏ</p>
 								<img class="imageScr2" src="./imgs/so-do-anh3.jpg" alt="">
 							</div>
 						</div>
