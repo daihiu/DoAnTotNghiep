@@ -10,7 +10,7 @@
     font-size: 30px;
     letter-spacing: 3px;
     font-weight: bold;
-    transform: translate(50px, -100px);
+    /* transform: translate(50px, -100px); */
 }
 
 /* first screen have text in center, background black */
@@ -18,6 +18,16 @@
     width: 100%;
     height: 100vh;
     background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.endScreen {
+    width: 100%;
+    height: 100vh;
+    /* background: url('./bgr-end-page.jpg') no-repeat center center/cover; */
     color: #ffffff;
     display: flex;
     justify-content: center;
@@ -212,14 +222,14 @@
         width: 250px;
     }
 
-    .titleAndImg2{
+    .titleAndImg2 {
         position: relative;
         transform: translateX(-37%);
         top: -280px;
         width: 250px;
     }
 
-    .titleImgScr2-1{
+    .titleImgScr2-1 {
         font-size: 24px;
         position: relative;
         margin: 0;
@@ -295,6 +305,30 @@
 @media screen and (max-width: 1600px) {}
 
 
+.buttonGoBack {
+    font-size: 50px;
+    position: fixed;
+    transform: translate(50%, 50%);
+    color: #000000;
+    z-index: 100;
+}
 
-/* how to get height of image */
-/* https://stackoverflow.com/questions/318630/get-real-image-width-and-height-with-javascript-in-chrome */
+.buttonGoBack:hover {
+    cursor: pointer;
+    color: rgb(72, 102, 27);
+}
+
+.buttonGoTop {
+    font-size: 50px;
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    color: rgb(209, 207, 77);
+    transform: rotate(90deg);
+    z-index: 100;
+}
+
+.buttonGoTop:hover {
+    cursor: pointer;
+    color: rgb(223, 219, 0);
+}

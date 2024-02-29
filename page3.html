@@ -76,105 +76,21 @@
             opacity: 1 !important;
             transition: all 1.5s linear;
         }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-
-            10%{
-                opacity: 0.1;
-            }
-
-            20%{
-                opacity: 0.2;
-            }
-
-            30%{
-                opacity: 0.3;
-            }
-
-            40%{
-                opacity: 0.4;
-            }
-
-            50%{
-                opacity: 0.5;
-            }
-
-            60%{
-                opacity: 0.6;
-            }
-
-            70%{
-                opacity: 0.7;
-            }
-
-            80%{
-                opacity: 0.8;
-            }
-
-            90%{
-                opacity: 0.9;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeOut{
-            0% {
-                opacity: 1;
-            }
-
-            10%{
-                opacity: 0.9;
-            }
-
-            20%{
-                opacity: 0.8;
-            }
-
-            30%{
-                opacity: 0.7;
-            }
-
-            40%{
-                opacity: 0.6;
-            }
-
-            50%{
-                opacity: 0.5;
-            }
-
-            60%{
-                opacity: 0.4;
-            }
-
-            70%{
-                opacity: 0.3;
-            }
-
-            80%{
-                opacity: 0.2;
-            }
-
-            90%{
-                opacity: 0.1;
-            }
-
-            100% {
-                opacity: 0;
-            }
-        }
-
     </style>
     <script src="./jquery-3.7.1.min.js"></script>
     <script src="./slick/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+    <a class="buttonGoBack" href="index.html">
+        <i class="fa-regular fa-circle-left"></i>
+    </a>
+    <div id="btnGoTop" class="buttonGoTop">
+        <i class="fa-regular fa-circle-left"></i>
+    </div>
     <div class="content-page-3" style="display: flex; flex-direction: column; height: fit-content;">
         <img src="./page3/3.1.png" alt="">
         <img src="./page3/3.2.png" alt="" style="z-index: 1;">
@@ -196,14 +112,41 @@
             <img id="img-7" class="inactive" src="./page3/3.11.png" alt="">
         </div>
 
-        <div id="img-scroll-3" style="transform: translateY(-2px);">
-            <img id="img-8" class="apear" src="./page3/3.12.png" alt="" style="position: absolute;">
-            <img id="img-9" style="opacity: 0;" class="disapear" src="./page3/3.13.png" alt="">
+        <!-- <div id="img-scroll-3" style="transform: translateY(-2px); position: relative;">
+            <img class="disapear" src="./page3/3.12.png" alt="" style="position: absolute;">
+            <img class="apear" src="./page3/3.13.png" alt="">
+            <video id="video-3.13" controls style="width: 79%;
+                position: absolute;
+                left: 0;
+                transform: translate(13.5%, 14%);
+                z-index: 100;">
+                <source src="./page3/3.13.MOV" type="video/mp4">
+            </video>
+        </div> -->
+        <div style="position: relative;">
+            <img src="./page3/back-vid.jpg" alt="">
+            <video id="video-3.13" controls style="width: 79%;
+            position: absolute;
+            left: 0;
+            transform: translate(13.5%, 11%);
+            z-index: 100;">
+                <source src="./page3/3.13.MOV" type="video/mp4">
+            </video>
         </div>
+
+        <!-- video 3.13 -->
+
 
     </div>
 
     <script>
+        $('#btnGoTop').on('click', function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 1000);
+        });
+
+
         $(window).on('scroll', function () {
             if ($(window).scrollTop() >= $('#img-scroll').offset().top + $('#img-scroll').outerHeight() - window.innerHeight) {
                 $('#img-1').css('display', 'none');
@@ -215,21 +158,36 @@
         });
 
         $(window).on('scroll', function () {
-            
+            console.log($('#video-3.13'));
+            if ($('#img-8').hasClass('apear')) {
+                $('#video-3.13').css('display', 'none !important');
+            }
             if ($(window).scrollTop() >= $('#img-scroll-3').offset().top + $('#img-scroll-3').outerHeight() - window.innerHeight) {
                 $('#img-8').removeClass('apear');
                 $('#img-8').addClass('disapear');
                 $('#img-9').removeClass('disapear');
                 $('#img-9').addClass('apear');
+                setInterval(() => {
+                    if ($('#img-9').hasClass('apear')) {
+                        $('#video-3.13').css('display', 'block !important');
+                    }
+                }, 1500);
             } else {
                 $('#img-8').removeClass('disapear');
                 $('#img-8').addClass('apear');
                 $('#img-9').removeClass('apear');
                 $('#img-9').addClass('disapear');
+                $('#video-3.13').css('display', 'none !important');
             }
         });
-        
-        
+
+        //check if #video-3.13 has class apear, after 1.5s, display it
+        // setInterval(() => {
+        //     if ($('#img-9').hasClass('apear')) {
+        //         $('#video-3.13').css('display', 'block !important');
+        //     }
+        // }, 1500);
+
         // $(window).on('scroll', function (e) {
         //     const img = $('#img-scroll-2').find('img');
         //     let i = 0;
