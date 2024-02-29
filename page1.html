@@ -11,6 +11,7 @@
             width: 100%;
         }
     </style>
+    <script src="./jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
@@ -19,9 +20,17 @@
         <img src="./page1/1-2.png" alt="">
         <img src="./page1/1-3.png" alt="">
         <img src="./page1/1-4.png" alt="">
+        <div style="display: flex; flex-direction: column; height: fit-content;">
+            <img src="./page1/1-5-img.png" alt="">
+            <video controls style="position: absolute; width: 60%; transform: translate(35%, 55%);">
+                <source src="./page1/1-5-vid.mp4" type="video/mp4">
+            </video>
+        </div>
         <img src="./page1/1-6.png" alt="">
-        <img src="./page1/1-7.png" alt="">
-        <img src="./page1/1-8.png" alt="">
+        <div id="playSound" style="display: flex; flex-direction: column;">
+            <img src="./page1/1-7.png" alt="">
+            <img src="./page1/1-8.png" alt="">
+        </div>
         <img src="./page1/1-9.png" alt="">
         <img src="./page1/1-10.png" alt="">
         <img src="./page1/1-11.png" alt="">
@@ -29,6 +38,24 @@
         <img src="./page1/1-13.png" alt="">
         <img src="./page1/1.14.jpg" alt="">
     </div>
+
+    <script>
+        var audio = new Audio('./page1/sound17-18.mp3');
+
+        $(window).on('scroll', function () {
+            console.log('scrolling');
+            console.log($(window).scrollTop());
+            console.log($('#playSound').offset().top);
+            console.log($('#playSound').outerHeight());
+            console.log(window.innerHeight);
+            console.log('end');
+            if ($(window).scrollTop() >= $('#playSound').offset().top && $(window).scrollTop() <= $('#playSound').offset().top + 500) {
+                audio.play();
+                audio.loop = false;
+                audio.volume = 0.5;
+            }
+        });
+    </script>
 </body>
 
 </html>
