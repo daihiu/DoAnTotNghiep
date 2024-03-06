@@ -10,6 +10,30 @@
         .content-page-3 img {
             width: 100%;
         }
+
+        body {
+            -moz-user-select: none !important;
+            -webkit-touch-callout: none !important;
+            -webkit-user-select: none !important;
+            -khtml-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+        }
+
+        #fullpage {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-size: contain;
+            background-repeat: no-repeat no-repeat;
+            background-position: center center;
+            background-color: #E7FDD6;
+        }
     </style>
     <script src="./jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -25,23 +49,58 @@
     <div id="btnGoTop" class="buttonGoTop">
         <i class="fa-regular fa-circle-left"></i>
     </div>
-    <div class="content-page-3" style="display: flex; flex-direction: column; height: fit-content;">
-        <img src="./page2/2.1.png" alt="">
-        <img src="./page2/2.2.png" alt="">
-        <img src="./page2/2.3.png" alt="">
-        <img src="./page2/2.4.png" alt="">
-        <img src="./page2/2.5.png" alt="">
-        <img src="./page2/2.6.png" alt="">
-        <img src="./page2/2.7.png" alt="">
-        <img src="./page2/2.8.png" alt="">
-        <img src="./page2/2.9.png" alt="">
-        <img src="./page2/2.10.png" alt="">
+    <div class="content-page-3" style="display: flex; flex-direction: column;">
+        <div style="display: flex; flex-direction: column;">
+            <img src="./page2/1.png" alt="">
+            <img id="startPointTurnOnSound" src="./page2/1.2.png" alt="">
+        </div>
+        <div id="part2Page2" onload="getPics()"
+            style="display: flex; flex-direction: column; padding: 0 7.5% 0 9%; background-color: #E7FDD6;">
+            <div style="display: flex; width: 100%; padding-bottom: 15px;">
+                <img style="width: 60%; padding-right: 15px;" src="./page2/de1.png" alt="">
+                <img style="width: 40%;" src="./page2/de2.png" alt="">
+            </div>
+            <div style="display: flex;">
+                <img style="width: 45%; padding-right: 15px;" src="./page2/de3.png" alt="">
+                <img style="width: 55%;" src="./page2/de4.png" alt="">
+            </div>
+
+            <img src="./page2/de5.png" alt="">
+        </div>
+        <div id="fullpage" onclick="this.style.display='none';"></div>
     </div>
     <script>
         $('#btnGoTop').on('click', function () {
             $('html, body').animate({
                 scrollTop: 0
             }, 1000);
+        });
+
+        function getPics() { } //just for this demo
+        const imgs = document.querySelectorAll('#part2Page2 img');
+        const fullPage = document.querySelector('#fullpage');
+
+        imgs.forEach(img => {
+            img.addEventListener('click', function () {
+                fullPage.style.backgroundImage = 'url(' + img.src + ')';
+                fullPage.style.display = 'block';
+            });
+        });
+
+        var audio = new Audio('./page2/soundPage2.mp3');
+
+        $(window).on('scroll', function () {
+            console.log('scrolling');
+            console.log($(window).scrollTop());
+            console.log($('#startPointTurnOnSound').offset().top);
+            console.log($('#startPointTurnOnSound').outerHeight());
+            console.log(window.innerHeight);
+            console.log('end');
+            if ($(window).scrollTop() >= $('#startPointTurnOnSound').offset().top / 2 && $(window).scrollTop() <= $('#startPointTurnOnSound').offset().top + 400) {
+                audio.play();
+                audio.loop = false;
+                audio.volume = 0.5;
+            }
         });
     </script>
 </body>

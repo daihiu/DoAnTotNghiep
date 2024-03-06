@@ -7,8 +7,24 @@
     <title>Du Lịch</title>
     <link rel="stylesheet" href="./style.css">
     <style>
+        body {
+            -moz-user-select: none !important;
+            -webkit-touch-callout: none !important;
+            -webkit-user-select: none !important;
+            -khtml-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+        }
+        
         .content-page-3 img {
             width: 100%;
+        }
+
+        #img12 img,
+        #img13 img,
+        #img14 img {
+            display: none;
         }
     </style>
     <script src="./jquery-3.7.1.min.js"></script>
@@ -25,47 +41,63 @@
     <div id="btnGoTop" class="buttonGoTop">
         <i class="fa-regular fa-circle-left"></i>
     </div>
-    <div class="content-page-3" style="display: flex; flex-direction: column; height: fit-content;">
-        <img src="./page1/1-1.png" alt="">
-        <img src="./page1/1-2.png" alt="">
-        <img src="./page1/1-3.png" alt="">
-        <img src="./page1/1-4.png" alt="">
-
-        <img src="./page1/1-6.png" alt="">
-        <div id="playSound" style="display: flex; flex-direction: column;">
-            <img src="./page1/1-7.png" alt="">
-            <img src="./page1/1-8.png" alt="">
+    <div class="content-page-3" style="display: flex; flex-direction: column;">
+        <div style="display: flex; flex-direction: column;">
+            <img src="./page1/1.1.png" alt="">
         </div>
-        <img src="./page1/1-9.png" alt="">
-        <img src="./page1/1-10.png" alt="">
-
-        <div style="display: flex; flex-direction: column; height: fit-content;">
-            <img src="./page1/1-11.jpg" alt="">
-            <video controls style="position: absolute; width: 45%; transform: translate(117%, 60%);">
-                <source src="./page1/1-5-vid.mp4" type="video/mp4">
+        <div id="img121" style="display: flex; flex-direction: column;">
+            <img src="./page1/121.jpg" alt="">
+        </div>
+        <div id="img122" style="display: flex; flex-direction: column;">
+            <img src="./page1/122.jpg" alt="">
+        </div>
+        <div id="img123" style="display: flex; flex-direction: column;">
+            <img src="./page1/123.jpg" alt="">
+        </div>
+        <div style="display: flex; flex-direction: column;">
+            <img src="./page1/1.3.png" alt="">
+            <video id="video1" controls style="width: 85%;
+                position: absolute;
+                left: 0;
+                transform: translate(9%, 145%);
+                z-index: 100;">
+                <source src="./page1/videotrang1.mp4" type="video/mp4">
             </video>
         </div>
-        <img src="./page1/1-12.png" alt="">
-        <img src="./page1/1-13.png" alt="">
-        <img src="./page1/1.14.jpg" alt="">
+        <div id="img14" style="display: flex; flex-direction: column;">
+            <img src="./page1/1.4.png" alt="">
+        </div>
+        <div style="display: flex; flex-direction: column;">
+            <img src="./page1/2.png" alt="">
+        </div>
+        <div style="display: flex; flex-direction: column; transform: translateY(-3px);">
+            <video id="video2" controls style="width: 48%;
+                position: absolute;
+                left: 0;
+                transform: translate(56.5%, 56%);
+                z-index: 100;">
+                <source src="./page1/videotrang3.mp4" type="video/mp4">
+            </video>
+            <img src="./page1/3.png" alt="">
+        </div>
     </div>
 
     <script>
-        var audio = new Audio('./page1/sound17-18.mp3');
+        // var audio = new Audio('./page1/sound17-18.mp3');
 
-        $(window).on('scroll', function () {
-            console.log('scrolling');
-            console.log($(window).scrollTop());
-            console.log($('#playSound').offset().top);
-            console.log($('#playSound').outerHeight());
-            console.log(window.innerHeight);
-            console.log('end');
-            if ($(window).scrollTop() >= $('#playSound').offset().top && $(window).scrollTop() <= $('#playSound').offset().top + 500) {
-                audio.play();
-                audio.loop = false;
-                audio.volume = 0.5;
-            }
-        });
+        // $(window).on('scroll', function () {
+        //     console.log('scrolling');
+        //     console.log($(window).scrollTop());
+        //     console.log($('#playSound').offset().top);
+        //     console.log($('#playSound').outerHeight());
+        //     console.log(window.innerHeight);
+        //     console.log('end');
+        //     if ($(window).scrollTop() >= $('#playSound').offset().top && $(window).scrollTop() <= $('#playSound').offset().top + 500) {
+        //         audio.play();
+        //         audio.loop = false;
+        //         audio.volume = 0.5;
+        //     }
+        // });
 
         $('#btnGoTop').on('click', function () {
             $('html, body').animate({
