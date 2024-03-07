@@ -99,9 +99,6 @@
     <a class="buttonGoBack" href="index.html">
         <i class="fa-regular fa-circle-left"></i>
     </a>
-    <div id="btnGoTop" class="buttonGoTop">
-        <i class="fa-regular fa-circle-left"></i>
-    </div>
     <div class="content-page-3" style="display: flex; flex-direction: column;">
         <div style="display: flex; flex-direction: column;">
             <img src="./page3/p11.jpg" alt="">
@@ -120,7 +117,18 @@
             </video>
         </div>
     </div>
-
+    <div class="listPages">
+        <a href="./page1.html" style="border-radius: 50%;" onclick="setSessionStorage('1')">
+            <img src="./icon1.png" alt="">
+        </a>
+        <a href="./page2.html" style="border-radius: 50%;" onclick="setSessionStorage('2')">
+            <img src="./icon2.png" alt="">
+        </a>
+        <a href="./page3.html" style="border-radius: 50%;" onclick="setSessionStorage('3')">
+            <img src="./icon3.png" alt="">
+        </a>
+    </div>
+    <script src="./javascript.js"></script>
     <script>
         $('#btnGoTop').on('click', function () {
             $('html, body').animate({

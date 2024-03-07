@@ -20,14 +20,26 @@
             user-select: none !important;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body style="background: url('./bgr-end-page.jpg') no-repeat center center/cover;">
+<body style="background: url('./bgr-end-page.jpg') no-repeat center center/cover;" onclick="turnOnSound()">
+    <a class="buttonGoBack" href="index.html">
+        <i class="fa-regular fa-circle-left"></i>
+    </a>
     <div class="endScreen" id="firstPage" style="flex-direction: column !important;">
         <div id="typedtext" style="text-align: center;"></div>
         <div id="typedtext2" style="text-align: center; font-size: 20px; color: white; margin-top: 10%;"></div>
     </div>
     <script src="./javascript2.js"></script>
+    <script>
+        function turnOnSound() {
+            var audio = new Audio('./sounds/dulich.mp3');
+            audio.play();
+        }
+    </script>
 </body>
 
 </html>
