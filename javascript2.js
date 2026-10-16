@@ -11,7 +11,7 @@ var aText = new Array(
     "và để mỗi đứa trẻ đều có tuổi thơ trọn vẹn."
 );
 var aText2 = new Array(
-    "Tác giả: Nguyễn Bích Thảo - Đinh Tống Hồng Oanh - Lê Thị Trang",
+    "Tác giả: Nguyễn Bích Thảo",
     "Sinh viên chuyên ngành TTĐPTK40 - Học viện Báo chí và Tuyên truyền.",
 );
 
@@ -41,7 +41,7 @@ function typewriter() {
     sContents = ' ';
     iRow = Math.max(0, iIndex - iScrollAt);
     var destination = document.getElementById("typedtext");
-    
+
     while (iRow < iIndex) {
         sContents += aText[iRow++] + '<br />';
     }
