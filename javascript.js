@@ -12,7 +12,9 @@ var aText = new Array(
     "Du lịch với bạn là gì?",
     "Là kỷ niệm, là trải nghiệm, là kiến thức...",
     "còn với những đứa trẻ ở mảnh đất đó",
-    "du lịch là một phần tâm hồn."
+    "du lịch là một phần tâm hồn.",
+    "",
+    "Tác giả: Nguyễn Bích Thảo"
 );
 var iSpeed = 50; // time delay of print out
 var iIndex = 0; // start printing array at this posision
@@ -50,7 +52,7 @@ typewriter();
 setTimeout(function () {
     document.getElementById("startButton").style.opacity = "1";
     document.getElementById("startButton").style.transition = "opacity 1s";
-}, 10500);
+}, 12500);
 
 function startShowOtherScreen() {
     //hide the main page
